@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一封信</title>
+<meta name="description" content="一封写给你的信。">
+<meta property="og:title" content="一封信">
+<meta property="og:description" content="一封写给你的信。">
+<style>
+  :root{
+    --bg:#F6F3EC;
+    --paper:#FFFFFF;
+    --line:#E8E1D5;
+    --ink:#2E2C29;
+    --ink-body:#35322E;
+    --muted:#8C877D;
+    --faint:#B0AA9E;
+    --accent:#B06A5A;
+    --font-serif:"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSong",Georgia,"Times New Roman",serif;
+    --font-sans:"Source Han Sans CN","Source Han Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    padding:clamp(24px,6vh,72px) clamp(20px,5vw,72px);
+  }
+  .topbar{
+    width:100%;
+    max-width:620px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .brand svg{display:block}
+  .meta{font-size:12px;color:var(--faint)}
+
+  .letter{
+    width:100%;
+    max-width:620px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:clamp(28px,5vw,56px);
+    box-shadow:0 18px 40px -12px rgba(107,92,71,.10),0 4px 12px -4px rgba(107,92,71,.06);
+  }
+  .rule{
+    display:block;
+    width:36px;height:2px;
+    background:var(--accent);
+    border-radius:2px;
+    margin:0 0 24px;
+  }
+  .greeting{
+    margin:0 0 24px;
+    font-family:var(--font-serif);
+    font-size:18px;
+    color:var(--ink);
+  }
+  .letter p.body{
+    margin:0 0 24px;
+    font-family:var(--font-serif);
+    font-size:16px;
+    line-height:2;
+    color:var(--ink-body);
+    word-break:break-word;
+  }
+  .letter p.closing{
+    margin:0;
+    font-family:var(--font-serif);
+    font-size:16px;
+    line-height:2;
+    color:var(--ink-body);
+  }
+  .signature{
+    margin-top:32px;
+    text-align:right;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:6px;
+  }
+  .signature .name{
+    font-family:var(--font-serif);
+    font-size:16px;
+    color:var(--ink);
+  }
+  .signature .date{font-size:12px;color:var(--faint)}
+
+  .share{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .copy{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    height:42px;
+    padding:0 22px;
+    border-radius:21px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--accent);
+    font-family:var(--font-sans);
+    font-size:13px;
+    cursor:pointer;
+    transition:transform .15s ease,box-shadow .2s ease;
+  }
+  .copy svg{display:block}
+  .copy:hover{box-shadow:0 6px 16px -6px rgba(107,92,71,.25)}
+  .copy:active{transform:scale(.97)}
+  .copy.done{color:#6E8B6B;border-color:#DCE3D6}
+  .hint{font-size:12px;color:var(--faint)}
+
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .topbar{animation:rise .6s ease both}
+  .letter{animation:rise .7s .08s ease both}
+  .share{animation:rise .7s .18s ease both}
+  @media (prefers-reduced-motion:reduce){
+    .topbar,.letter,.share{animation:none}
+  }
+
+  @media (max-width:560px){
+    .letter p.body,.letter p.closing{font-size:15px;line-height:1.9}
+    .greeting{font-size:17px}
+    .share{flex-direction:column;gap:12px;width:100%;max-width:620px}
+    .copy{width:100%;height:46px;justify-content:center}
+    .hint{text-align:center}
+    .signature{margin-top:24px}
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <span class="brand">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M9 16.5V4" stroke="#B06A5A" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M9 8.5C9 8.5 5.8 8.2 4.2 5.8C6.9 5.4 8.5 6.7 9 8.5Z" stroke="#B06A5A" stroke-width="1.1" stroke-linejoin="round"/>
+        <path d="M9 12.5C9 12.5 12.2 12.2 13.8 9.8C11.1 9.4 9.5 10.7 9 12.5Z" stroke="#B06A5A" stroke-width="1.1" stroke-linejoin="round"/>
+      </svg>
+      <span>一封信</span>
+    </span>
+    <span class="meta" id="letterMeta"></span>
+  </header>
+
+  <article class="letter">
+    <span class="rule" aria-hidden="true"></span>
+    <p class="greeting" id="letterGreeting"></p>
+    <div id="letterBody"></div>
+    <p class="closing" id="letterClosing"></p>
+    <footer class="signature">
+      <span class="name" id="letterSender"></span>
+      <span class="date" id="letterDate"></span>
+    </footer>
+  </article>
+
+  <div class="share">
+    <button class="copy" id="copyBtn" type="button">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6.6 9.4L9.4 6.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M7.4 4.6L8.9 3.1C10.3 1.7 12.3 1.7 13.7 3.1C15.1 4.5 15.1 6.5 13.7 7.9L12.2 9.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M8.6 11.4L7.1 12.9C5.7 14.3 3.7 14.3 2.3 12.9C0.9 11.5 0.9 9.5 2.3 8.1L3.8 6.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <span id="copyLabel">复制这封信的链接</span>
+    </button>
+    <span class="hint">把这个网址发给谁，谁都能读到</span>
+  </div>
+</main>
+
+<script>
+  /* ============================================================
+     信件内容 —— 以后只想换内容，改下面这一个对象就够了
+     ------------------------------------------------------------
+     recipient  : 称呼（写名字即可，冒号会自动加）
+     paragraphs : 正文，数组里每一项就是一段
+     closing    : 结语
+     sender     : 署名
+     date       : 落款日期
+     meta       : 页面右上角的小字
+     ============================================================ */
+  const LETTER = {
+    recipient: "见秋",
+    paragraphs: [
+      "秋天来得比往年慢一些。梧桐叶还挂在枝上，风一吹，就哗啦啦地响成一片。我坐在窗边写这封信，忽然想起你说过，秋天是最适合讲心里话的季节。",
+      "其实没什么大事要讲。只是想把这一段日子摊开给你看看：有几回确实很难，也有几回好得让人舍不得睡。难的时候想起你，好像就没那么难了。",
+      "如果你此刻正忙，不必急着回信。把这封信放在手边，等一个安静的晚上再读，也是一样的。"
+    ],
+    closing: "祝好。",
+    sender: "陈屿",
+    date: "二〇二六年十月二日",
+    meta: "写于 2026 年秋"
+  };
+  /* ==================== 以下是排版逻辑，不用动 ==================== */
+
+  document.getElementById("letterMeta").textContent = LETTER.meta;
+  document.getElementById("letterGreeting").textContent = LETTER.recipient + "：";
+
+  const body = document.getElementById("letterBody");
+  LETTER.paragraphs.forEach(text => {
+    const p = document.createElement("p");
+    p.className = "body";
+    p.textContent = text;
+    body.appendChild(p);
+  });
+
+  document.getElementById("letterClosing").textContent = LETTER.closing;
+  document.getElementById("letterSender").textContent = LETTER.sender;
+  document.getElementById("letterDate").textContent = LETTER.date;
+  document.title = "一封信 · 致" + LETTER.recipient;
+  document.querySelector('meta[property="og:title"]').setAttribute("content", "一封信 · 致" + LETTER.recipient);
+
+  const btn = document.getElementById("copyBtn");
+  const label = document.getElementById("copyLabel");
+  btn.addEventListener("click", async () => {
+    const url = location.href;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(url);
+      ok = true;
+    } catch (e) {
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand("copy"); } catch (e2) { ok = false; }
+      document.body.removeChild(ta);
+    }
+    if (ok) {
+      btn.classList.add("done");
+      label.textContent = "链接已复制";
+      setTimeout(() => { btn.classList.remove("done"); label.textContent = "复制这封信的链接"; }, 2000);
+    } else {
+      label.textContent = "复制失败，长按地址栏复制";
+      setTimeout(() => { label.textContent = "复制这封信的链接"; }, 2400);
+    }
+  });
+</script>
+</body>
+</html>
